@@ -7,19 +7,18 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #1A1A1A;
-            color: white;
+            background-color: white;
+            color: black;
         }
         .container {
             max-width: 900px;
             padding-top: 5%;
-
         }
         .card {
-            background: linear-gradient(145deg, #232323, #1A1A1A);
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
             border: none;
             border-radius: 25px;
-            box-shadow: 0 0 20px #D63384;
+            box-shadow: 0 0 20px #28a745;
         }
         .card-header {
             background-color: transparent;
@@ -29,34 +28,33 @@
             padding: 2rem;
         }
         .btn-primary {
-            background-color: #D63384;
+            background-color: #28a745;
             border: none;
             border-radius: 50px;
-            
+            color: white;
         }
         .btn-primary:hover {
-            background-color: #C82373;
+            background-color: #218838;
         }
         .form-control {
             background-color: transparent;
-            border-color: whitesmoke;
-            color: white;
-            
+            border-color: black;
+            color: black;
         }
         .form-control::placeholder {
-            color: #ADB5BD;
+            color: #6c757d;
         }
         .form-control:focus {
             box-shadow: none;
-            color: white;
-            background-color: #1A1A1A;
+            color: black;
+            background-color: white;
         }
-        .form-label{
-            color: #FFFFFF;
+        .form-label {
+            color: black;
         }
         .card-title {
-            color: white; /* Ensure the text is white */
-            font-weight: bold; /* Make the text bold */
+            color: black;
+            font-weight: bold;
         }
         .audio-player {
             display: none;
@@ -72,7 +70,7 @@
             width: 100%;
             height: 15px;
             border-radius: 5px;
-            background: #D63384;
+            background: #28a745;
             outline: none;
             opacity: 0.7;
             -webkit-transition: .2s;
@@ -87,39 +85,60 @@
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            background: #FFFFFF;
+            background: #ffffff;
             cursor: pointer;
-            box-shadow: 0 0 10px #D63384;
+            box-shadow: 0 0 10px #28a745;
         }
         .slider::-moz-range-thumb {
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            background: #FFFFFF;
+            background: #ffffff;
             cursor: pointer;
-            box-shadow: 0 0 10px #D63384;
+            box-shadow: 0 0 10px #28a745;
         }
         .download-icon {
-            color: #D63384;
+            color: #28a745;
             font-size: 24px;
             margin-left: 10px;
             cursor: pointer;
         }
-        #loader{
+        #loader {
             display: none;
-
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #6c757d;
+        }
+        .developer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .developer img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .developer a {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mb-4 "><b>Welcome to Harmonix</b></h1>
-        <p class="text-center mb-5">Create songs from text within seconds by describing the music you wish to generate.</p>
+        <h1 class="text-center mb-4"><b>Welcome to Strawhat Music Generation</b></h1>
+        <p class="text-center mb-5">Transform your text into captivating music in seconds by simply describing the sound you envision</p>
         <div class="card mx-auto mb-5">
             <div class="card-header">
             </div>
             <div class="card-body">
-                <h4 class="card-title mb-4">Put your Text Prompt</h4>
+                <h4 class="card-title mb-4">Put your Imagination here</h4>
                 <div class="mb-3">
                     <textarea class="form-control" id="description" rows="3" placeholder="For example: Ed0-25 major g melodies that sound triumphant and cinematic. Leading up to a crescendo that resolves in a 9th harmonic."></textarea>
                 </div>
@@ -135,12 +154,12 @@
             </div>
         </div>
         <div id="loader" class="text-center">
-            <div class="spinner-grow text-warning" style="width: 8rem; height: 8rem;" role="status">
+            <div class="spinner-grow text-success" style="width: 8rem; height: 8rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
             <br>
             <br>
-            <h6>Generating your Music....................</h6>
+            <h6>Generating your Music...</h6>
         </div>
         <div class="audio-player" id="audioPlayer">
             <h4 class="text-center mb-3">AI Generated Music Below</h4>
@@ -155,6 +174,17 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><strong>Developed By:</strong></p>
+            <div class="developer">
+                <img src="https://avatars.githubusercontent.com/u/80765098?s=400&u=0931e9a5ebf86d799b193540a1e6763e00ffe932&v=4" alt="Profile Picture of Mohammed Saad">
+                <p>Data Scientist: <a href="https://github.com/MrVisionaryGenius" target="_blank">Mohammed Saad</a></p>
+            </div>
+            <div class="developer">
+                <img src="https://avatars.githubusercontent.com/u/85388132?v=4" alt="Profile Picture of Khan Kutbuddin">
+                <p>Data Scientist: <a href="https://github.com/KutbuddinKhan" target="_blank">Khan Kutbuddin</a></p>
             </div>
         </div>
     </div>
@@ -177,8 +207,8 @@
                     text: "Please enter a description for the music generation.",
                     icon: "error"
                 });
-            return; // Stop the function from proceeding further
-        }
+                return; // Stop the function from proceeding further
+            }
 
             const formData = new FormData();
             formData.append('prompt', prompt);
@@ -196,8 +226,6 @@
                     const downloadLink = document.getElementById('downloadLink');
                     
                     // Update the audio source and download link
-                    // audioPlayer.querySelector('source').src = result.url; // Assuming 'url' is the key in your JSON response containing the music file URL
-                    // audioPlayer.querySelector('audio').load();
                     wavesurfer.load(result.url);
                     audioPlayer.style.display = 'block';
                     
